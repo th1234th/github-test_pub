@@ -1,4 +1,4 @@
-name: Learn-github-action
+name: Learn-github-action with bats
 run-name: ${{github.actor}} is running
 on: [push]
 jobs:

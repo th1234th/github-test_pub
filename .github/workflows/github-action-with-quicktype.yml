@@ -1,0 +1,16 @@
+name: Github action with quicktype
+run-name: ${{ github.actor}} is testing out Github actions with quicktype
+on: [push]
+jobs:
+  check-a-quicktype-version-and-run-a-test:
+      runs-on: ubuntu-latest
+      steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+            - run: npm install -g quicktype
+            - run: |
+                echo '{ "name": "David" }'
+                quicktype -l csharp
+
