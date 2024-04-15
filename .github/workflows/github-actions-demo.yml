@@ -12,7 +12,7 @@ jobs:
               run: echo "🐧 This job is now running on a ${{runner.os}} server hosted by GitHub!"
 
             - name: Echo the ref of the repo
-              run: echo "🔎 The name of your branch is ${{github.ref}} and the repo is ${{github.repository}}
+              run: echo "🔎 The name of your branch is ${{github.ref}} and the repo is ${{github.repository}}."
 
             - name: Check out the repo code
               uses: actions/checkout@v4
