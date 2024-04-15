@@ -10,4 +10,6 @@ jobs:
               with:
                 node-version: '20'
             - run: npm i bats
-            - run: bats --version
+            - run: |
+                bats -v
+                bats -c
