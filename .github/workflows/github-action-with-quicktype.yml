@@ -1,6 +1,6 @@
 name: Github action with quicktype
 run-name: ${{ github.actor}} is testing out Github actions with quicktype
-on: [push]
+on: [pull_request]
 jobs:
   check-a-quicktype-version-and-run-a-test:
       runs-on: ubuntu-latest
