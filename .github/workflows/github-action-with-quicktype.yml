@@ -1,4 +1,4 @@
-name: Github action with quicktype
+name: Github action with quicktype test
 run-name: ${{ github.actor}} is testing out Github actions with quicktype
 on: [pull_request]
 jobs:
