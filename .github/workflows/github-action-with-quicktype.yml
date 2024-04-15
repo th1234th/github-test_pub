@@ -12,5 +12,5 @@ jobs:
                 ref: ${{github.event.push.sha}}
             - run: npm install -g quicktype
             - run: |
-                echo '{ "name": "David" } | quicktype -l csharp
+                echo '{ "name": "David" }' | quicktype -l csharp
 
