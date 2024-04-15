@@ -9,6 +9,7 @@ jobs:
             - uses: actions/setup-node@v4
               with:
                 node-version: '20'
+                ref: ${{github.event.push.sha}}
             - run: npm install -g quicktype
             - run: |
                 echo '{ "name": "David" } | quicktype -l csharp
