@@ -1,6 +1,9 @@
 name: Learn-github-action with bats
 run-name: ${{github.actor}} is running
-on: [push]
+on: 
+    push:
+        branches:
+            - main
 jobs:
     check-bats-version:
         runs-on: ubuntu-22.04
