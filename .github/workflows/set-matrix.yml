@@ -12,7 +12,7 @@ jobs:
       - id: set-matrix
         run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
       - name: Echo matrix
-        run: echo "matrix ${{ steps.set-matrix.outputs.matrix }} "
+        run: echo "matrix ${{ steps.set-matrix.outputs }} "
   job2:
     needs: job1
     runs-on: ubuntu-latest
