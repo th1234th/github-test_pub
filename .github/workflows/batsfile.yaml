@@ -1,0 +1,35 @@
+name: Bats-session-use-case
+run-name: ${{github.actor}} run Bats-session-use-case trigged by ${{ github.event_name }}
+on:
+  push:
+    branches:
+      - bats/test
+
+jobs:
+    bats-session-use-case:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Create a src directory and bats test directory
+              run: 
+                mkdir -p src test/bats |
+                touch ${{github.workspace}}/test/test.bats
+                touch ${{github.workspace}}/src/project.sh
+            - name: make project file exwcutable
+              run: chmod a+x ${{github.workspace}}/src/project.sh
+            - name: Add value in test.bats file
+              shell: bash
+              run: |
+                   echo '@test "can run our script" {' > ${{github.workspace}}/test/test.bats
+                   echo './project.sh' >> ${{github.workspace}}/test/test.bats
+                   echo '}' >> ${{github.workspace}}/test/test.bats
+            - name: Setup Bats and Bats libs
+              uses: brokenpip3/setup-bats-libs@0.1.0
+              with:
+                support-path: ${{ github.workspace }}/test/bats-support
+                assert-path: ${{ github.workspace }}/test/bats-assert
+            - name: Run Bats test
+              run: bats ${{github.workspace}}/test/test.bats
+
+
