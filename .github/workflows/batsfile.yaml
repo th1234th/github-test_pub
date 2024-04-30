@@ -32,6 +32,8 @@ jobs:
                 bats-install: true
                 support-path: ${{ github.workspace }}/test/bats-support
                 assert-path: ${{ github.workspace }}/test/bats-assert
+            - name: Setup Bats
+              uses: bats-core/bats-action@v2
             - name: Run Bats test
               run: bats ${{github.workspace}}/test/test.bats
 
