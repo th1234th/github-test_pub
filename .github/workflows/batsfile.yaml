@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@bats/test
             - name: Create a src directory and bats test directory
               run: 
                 mkdir -p src test/bats |
@@ -27,10 +27,9 @@ jobs:
             - name: Setup Bats and Bats libs
               uses: brokenpip3/setup-bats-libs@0.1.0
               with:
+                bats-install: true
                 support-path: ${{ github.workspace }}/test/bats-support
                 assert-path: ${{ github.workspace }}/test/bats-assert
-            - name: Setup Bats
-              uses: actions/setup-bats@v2
             - name: Run Bats test
               run: bats ${{github.workspace}}/test/test.bats
 
