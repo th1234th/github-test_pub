@@ -24,7 +24,7 @@ jobs:
               shell: bash
               run: |
                    echo '@test "can run our script" {' > ${{github.workspace}}/test/test.bats
-                   echo './project.sh' >> ${{github.workspace}}/test/test.bats
+                   echo '.src/project.sh' >> ${{github.workspace}}/test/test.bats
                    echo '}' >> ${{github.workspace}}/test/test.bats
             
             - name: Setup Bats
