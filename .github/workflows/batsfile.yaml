@@ -26,14 +26,13 @@ jobs:
                    echo '@test "can run our script" {' > ${{github.workspace}}/test/test.bats
                    echo './project.sh' >> ${{github.workspace}}/test/test.bats
                    echo '}' >> ${{github.workspace}}/test/test.bats
-            - name: Setup Bats and Bats libs
-              uses: brokenpip3/setup-bats-libs@0.1.0
+            
+            - name: Setup Bats
+              uses: bats-core/bats-action@2.0.0
               with:
                 bats-install: true
                 support-path: ${{ github.workspace }}/test/bats-support
                 assert-path: ${{ github.workspace }}/test/bats-assert
-            - name: Setup Bats
-              uses: bats-core/bats-action@v2
             - name: Run Bats test
               run: bats ${{github.workspace}}/test/test.bats
 
