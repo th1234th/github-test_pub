@@ -10,7 +10,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@bats/test
+              uses: actions/checkout@v2
+              with:
+                ref: bats/test
             - name: Create a src directory and bats test directory
               run: 
                 mkdir -p src test/bats |
